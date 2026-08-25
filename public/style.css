@@ -158,6 +158,11 @@ textarea:focus-visible,
   margin-top: 4px;
 }
 
+.work-table th:nth-child(2),
+.work-table td:nth-child(2) {
+  white-space: nowrap;
+}
+
 .summary-title {
   margin-top: 10px;
   font-weight: bold;
