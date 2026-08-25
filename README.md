@@ -25,6 +25,7 @@ public/
   index.html
   style.css
   script.js
+  favicon.svg
 .firebaserc
 .gitignore
 firebase.json
