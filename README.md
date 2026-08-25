@@ -11,8 +11,8 @@ Aplicativo estático para geração e impressão de folhas de ponto da Marques &
 - Campos editáveis para horários, observações, resumo e assinaturas.
 - Impressão individual.
 - Impressão em lote de todos os funcionários, com opção de salvar em PDF pelo navegador.
-- Modo claro e escuro durante a página aberta.
-- Layout adaptado para computador, notebook, tablet e celular.
+- Modo claro e escuro durante a página aberta, com botão de lua e sol.
+- Interface exclusiva para computadores desktop e notebooks.
 
 ## Arquitetura
 
