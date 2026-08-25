@@ -90,9 +90,17 @@ textarea {
   height: 34px;
   align-items: center;
   justify-content: center;
-  background: #495057;
+  border: 1px solid #d6dce3;
+  background: #fff;
+  color: #1769d2;
   font-size: 23px;
   line-height: 1;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16);
+}
+
+body.dark-mode .btn-theme {
+  background: #fff;
+  color: #f4a300;
 }
 
 .controls button:focus-visible,
