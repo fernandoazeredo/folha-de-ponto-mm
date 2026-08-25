@@ -261,8 +261,11 @@ function imprimirTodos() {
 function alternarTema() {
   const escuroAtivo = document.body.classList.toggle('dark-mode');
   const botao = document.getElementById('btnTheme');
-  botao.textContent = escuroAtivo ? 'Modo claro' : 'Modo escuro';
+  const descricao = escuroAtivo ? 'Ativar modo claro' : 'Ativar modo escuro';
+  botao.textContent = escuroAtivo ? '☀' : '☾';
   botao.setAttribute('aria-pressed', String(escuroAtivo));
+  botao.setAttribute('aria-label', descricao);
+  botao.title = descricao;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
