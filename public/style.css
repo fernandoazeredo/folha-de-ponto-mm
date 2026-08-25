@@ -283,16 +283,28 @@ textarea:focus-visible,
   }
 
   .table-scroll {
+    display: contents;
     overflow: visible;
   }
 
   .signatures {
-    break-inside: avoid;
-    page-break-inside: avoid;
+    display: block;
+    text-align: center;
   }
 
   .assinatura {
-    margin-top: 16px;
+    display: inline-block;
+    width: 45%;
+    margin-top: 30px;
+  }
+
+  .assinatura:last-child {
+    float: right;
+  }
+
+  .work-table,
+  .summary-table {
+    margin-top: 4px;
   }
 
   .header-table,
@@ -308,5 +320,5 @@ textarea:focus-visible,
 
 @page {
   size: A4 portrait;
-  margin: 8mm 10mm;
+  margin: 14mm 10mm;
 }
