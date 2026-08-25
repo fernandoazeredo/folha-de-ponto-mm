@@ -98,7 +98,24 @@ const funcionarios = {
   }
 };
 
-const feriadosFixos = ['01/01', '21/04', '01/05', '07/09', '12/10', '02/11', '15/11', '25/12'];
+// Feriados nacionais, estaduais do RJ e municipais da cidade do Rio de Janeiro.
+const feriadosFixos = [
+  '01/01', // Confraternização Universal
+  '20/01', // São Sebastião — municipal
+  '21/04', // Tiradentes
+  '23/04', // São Jorge — estadual
+  '01/05', // Dia do Trabalho
+  '07/09', // Independência do Brasil
+  '12/10', // Nossa Senhora Aparecida
+  '02/11', // Finados
+  '15/11', // Proclamação da República
+  '20/11', // Consciência Negra
+  '25/12'  // Natal
+];
+
+function formatarDiaMes(data) {
+  return `${String(data.getDate()).padStart(2, '0')}/${String(data.getMonth() + 1).padStart(2, '0')}`;
+}
 
 function calcularFeriadosMoveis(ano) {
   const f = Math.floor;
@@ -108,16 +125,25 @@ function calcularFeriadosMoveis(ano) {
   const I = H - f(H / 28) * (1 - f(29 / (H + 1)) * f((21 - G) / 11));
   const J = (ano + f(ano / 4) + I + 2 - C + f(C / 4)) % 7;
   const L = I - J;
-  const mPas = 3 + f((L + 40) / 44);
-  const dPas = L + 28 - 31 * f(mPas / 4);
-  const pas = new Date(ano, mPas - 1, dPas);
-  const dia = 86400000;
+  const mesPascoa = 3 + f((L + 40) / 44);
+  const diaPascoa = L + 28 - 31 * f(mesPascoa / 4);
+  const pascoa = new Date(ano, mesPascoa - 1, diaPascoa);
 
-  return [pas.getTime() - 2 * dia, pas.getTime() - dia, pas.getTime(), pas.getTime() + 60 * dia]
-    .map((timestamp) => {
-      const data = new Date(timestamp);
-      return `${String(data.getDate()).padStart(2, '0')}/${String(data.getMonth() + 1).padStart(2, '0')}`;
-    });
+  const deslocamentos = [
+    -47, // Terça-feira de Carnaval — estadual
+    -2   // Sexta-feira da Paixão
+  ];
+
+  // Corpus Christi passou a ser feriado estadual no RJ em outubro de 2025.
+  if (ano >= 2026) {
+    deslocamentos.push(60);
+  }
+
+  return deslocamentos.map((deslocamento) => {
+    const data = new Date(pascoa);
+    data.setDate(data.getDate() + deslocamento);
+    return formatarDiaMes(data);
+  });
 }
 
 function atualizarEspelhosDeImpressao() {
