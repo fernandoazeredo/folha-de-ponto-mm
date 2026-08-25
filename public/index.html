@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Folha de Ponto — Marques & Müller">
+  <title>Folha de Ponto — Marques & Müller</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="no-print controls" role="group" aria-label="Controles da folha de ponto">
+    <button type="button" class="btn-print" id="btnPrint">Imprimir Folha</button>
+    <button type="button" class="btn-print-all" id="btnPrintAll">Imprimir Todos em PDF</button>
+    <button type="button" class="btn-theme" id="btnTheme" aria-pressed="false">Modo escuro</button>
+  </div>
+
+  <div id="printArea"></div>
+
+  <main id="sheet">
+    <header class="sheet-heading">
+      <div class="sheet-titles">
+        <div class="titulo-principal">MARQUES &amp; MÜLLER ESCRITORIO DE ADVOCACIA S/C</div>
+        <div class="subtitulo">FOLHA DE PONTO</div>
+      </div>
+      <img src="https://prezigram-assets.prezicdn.net/22f867dbd3a4b707b219908ae473f1088e3bc238e0d90033137f9257e832f2862dac7bdc8d8e44e890d4911e113d03441deb6c82e6ffddcc3d47b44f15b14f6d" alt="Logo" class="logo">
+    </header>
+
+    <div class="table-scroll">
+      <table class="header-table">
+        <tr>
+          <td><strong>CNPJ:</strong> 04.344.462/0001-87</td>
+          <td>
+            <strong>PERÍODO:</strong>
+            <select id="mesSelect" aria-label="Mês"></select>
+            <span id="mesPrint" class="print-only"></span>
+            <select id="anoSelect" aria-label="Ano"></select>
+            <span id="anoPrint" class="print-only"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>FUNCIONÁRIO:</strong>
+            <select id="funcionarioSelect" aria-label="Funcionário">
+              <option value="">Selecione</option>
+              <option value="todos">Todos</option>
+              <option value="carla">Carla Regina Roberto Trindade</option>
+              <option value="carolina">Carolina Santoro de Carvalho</option>
+              <option value="christiane">Christiane Ferreira Alves do Nascimento</option>
+              <option value="debora">Débora Muniz Lisboa</option>
+              <option value="erico">Erico dos Santos de Lima</option>
+              <option value="gabriele">Gabriele de Souza Cunha</option>
+              <option value="jamily">Jamily da Silva</option>
+              <option value="juliana">Juliana Dias da Mota Borba</option>
+              <option value="lelia">Lelia Maria Faria Gaspar</option>
+              <option value="maria_elizabete">Maria Elizabete de Lima</option>
+              <option value="maria_socorro">Maria Socorro C Filgueira</option>
+              <option value="mariana">Mariana Oliveira dos Santos</option>
+              <option value="michel">Michel dos Santos Barreto</option>
+              <option value="nicole">Nicole Silva Rocha</option>
+              <option value="pollyana">Pollyana Lourenço da Silva</option>
+              <option value="renata">Renata Cristina Alves da Cunha</option>
+              <option value="solange">Solange de Souza Mendes</option>
+              <option value="thais">Thais da Silva Reis</option>
+              <option value="vanessa">Vanessa de Souza Joaquim</option>
+            </select>
+            <span id="funcionarioPrint" class="print-only"></span>
+          </td>
+          <td><strong>DATA ADMISSÃO:</strong> <span id="dataAdmissao">---</span></td>
+        </tr>
+        <tr>
+          <td><strong>CARGO:</strong> <span id="cargo">---</span></td>
+          <td><strong>HORÁRIO:</strong> 09:00 às 18:00</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="table-scroll work-table-wrap">
+      <table class="work-table">
+        <thead>
+          <tr>
+            <th rowspan="2">DATA</th>
+            <th rowspan="2">DIA</th>
+            <th colspan="4">JORNADA DIÁRIA DE TRABALHO</th>
+            <th colspan="2">HORAS EXTRA</th>
+            <th rowspan="2">ASSINATURA OU OBSERVAÇÃO</th>
+          </tr>
+          <tr>
+            <th>Início</th>
+            <th>Início Intervalo</th>
+            <th>Término Intervalo</th>
+            <th>Término</th>
+            <th>Início</th>
+            <th>Término</th>
+          </tr>
+        </thead>
+        <tbody id="folhaTabela"></tbody>
+      </table>
+    </div>
+
+    <div class="summary-title">RESUMO GERAL</div>
+    <div class="table-scroll summary-table-wrap">
+      <table class="summary-table">
+        <thead>
+          <tr>
+            <th>HORAS NORMAIS</th>
+            <th>HORAS EXTRAS</th>
+            <th>HORAS DSR</th>
+            <th>HORAS NOTURNAS</th>
+            <th>VISTO</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="observacao-box">
+      <label for="observacao"><strong>OBSERVAÇÃO:</strong></label><br>
+      <textarea id="observacao"></textarea>
+    </div>
+
+    <div class="signatures">
+      <div class="assinatura" contenteditable="true">
+        ___________________________<br>FUNCIONÁRIO
+      </div>
+      <div class="assinatura" contenteditable="true">
+        ___________________________<br>SUPERVISOR
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
