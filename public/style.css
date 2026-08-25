@@ -84,7 +84,7 @@ textarea {
   background: #dc3545;
 }
 
-.btn-theme {
+.controls .btn-theme {
   display: inline-flex;
   width: 42px;
   height: 34px;
