@@ -286,6 +286,15 @@ textarea:focus-visible,
     overflow: visible;
   }
 
+  .signatures {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .assinatura {
+    margin-top: 16px;
+  }
+
   .header-table,
   .work-table,
   .summary-table,
@@ -299,5 +308,5 @@ textarea:focus-visible,
 
 @page {
   size: A4 portrait;
-  margin: 14mm 10mm;
+  margin: 8mm 10mm;
 }
