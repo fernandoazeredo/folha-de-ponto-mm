@@ -92,7 +92,7 @@ textarea {
   justify-content: center;
   border: 1px solid #d6dce3;
   background: #fff;
-  color: #1769d2;
+  color: #000;
   font-size: 23px;
   line-height: 1;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16);
@@ -100,7 +100,7 @@ textarea {
 
 body.dark-mode .btn-theme {
   background: #fff;
-  color: #f4a300;
+  color: #ffc107;
 }
 
 .controls button:focus-visible,
